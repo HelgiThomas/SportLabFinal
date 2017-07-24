@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 
 namespace Inspinia_MVC5_SeedProject.Models
 {
@@ -9,6 +10,8 @@ namespace Inspinia_MVC5_SeedProject.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Athlete> Athletes { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection")
         {
