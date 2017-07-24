@@ -6,14 +6,10 @@ using System.Web.Mvc;
 
 namespace Inspinia_MVC5_SeedProject.Controllers
 {
-    public class HomeController : Controller
+    public class MeasurementController : Controller
     {
+        // GET: Measurement
         public ActionResult Index()
-        {
-            return View();
-        }
-
-        public ActionResult Minor()
         {
             return View();
         }
