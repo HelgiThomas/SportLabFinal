@@ -280,6 +280,7 @@
     <Content Include="Views\Shared\_TopNavbar.cshtml" />
     <Content Include="Views\Athlete\Index.cshtml" />
     <Content Include="Views\Measurement\Index.cshtml" />
+    <Content Include="Views\Athlete\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

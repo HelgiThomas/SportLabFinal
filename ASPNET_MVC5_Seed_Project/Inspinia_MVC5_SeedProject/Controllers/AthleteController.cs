@@ -13,23 +13,36 @@ namespace Inspinia_MVC5_SeedProject.Controllers
         // GET: Athlete
         public ActionResult Index()
         {
-            var athlete = new Athlete();
+            var athletes = GetAthletes();
 
-            athlete.Name = "Helgi Thomas Hallgrimsson";
+            return View(athletes);
+        }
 
-            var measurements = new List<Measurement>
+        public ActionResult Details(int id)
+        {
+            var athlete = GetAthletes().SingleOrDefault(a => a.Id == id);
+
+            if ( athlete == null)
             {
-                new Measurement {Name = "Hæð"},
-                new Measurement {Name = "Þyngd"}
-            };
+                return HttpNotFound();
+            }
 
-            var viewModel = new AthleteViewModel
+            return View(athlete);
+        }
+
+        private IEnumerable<Athlete> GetAthletes()
+        {
+            return new List<Athlete>
             {
-                Athlete = athlete,
-                Measurements = measurements
-            };
 
-            return View(viewModel);
+                new Athlete {Id = 1, Name = "Helgi Thomas Hallgrímsson", IdNumber ="0809952889", Sport ="Crossfit" , Team = "Crossfit Reykjavík"},
+
+                new Athlete {Id = 2, Name = "Thomas Geir Malla", IdNumber ="1509952889", Sport ="Badmitton" , Team = "Fjolnir"},
+
+
+                new Athlete {Id = 3, Name = "Heimir Bjarnarson", IdNumber ="0812952889", Sport ="Kvikmynd" , Team = "Skot"}
+            };
+              
         }
     }
 }
